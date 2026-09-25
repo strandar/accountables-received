@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta
+      name="description"
+      content="accountables received — a distributed responsive artwork"
+    />
+    <title>accountables received</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="app" class="app">
+      <header id="title-block" class="title-block" aria-label="accountables received">
+        <h1 id="work-title" class="work-title">
+          <span id="title-accountables">accountables</span>
+          <span id="title-separator" aria-hidden="true"> </span>
+          <span id="title-received">received</span>
+        </h1>
+        <p id="title-status" class="title-status" aria-live="polite"></p>
+      </header>
+
+      <section id="remote-entry" class="remote-entry" hidden aria-labelledby="remote-title">
+        <p class="small-label">Available position</p>
+        <h2 id="remote-title">Would you like to work remotely?</h2>
+        <button id="remote-button" class="primary-action" type="button">
+          Work remotely
+        </button>
+      </section>
+
+      <section id="workplace" class="workplace" aria-labelledby="work-heading">
+        <header class="workplace-header">
+          <p id="orientation-label" class="orientation-label"></p>
+          <p id="condition-label" class="condition-label"></p>
+          <p id="service-label" class="service-label" hidden>Prior service noted</p>
+          <p id="frozen-label" class="frozen-label" hidden>Final deployment retained</p>
+        </header>
+
+        <section id="attention" class="attention" aria-labelledby="work-heading">
+          <h2 id="work-heading">What needs attention?</h2>
+          <div id="attention-options" class="attention-options" role="group" aria-label="Areas requiring attention"></div>
+        </section>
+
+        <article id="working-surface" class="working-surface" hidden>
+          <header class="surface-header">
+            <div class="surface-identity">
+              <p id="surface-state" class="surface-state">Current build</p>
+              <h2 id="surface-title" class="surface-title">Make one decision visible.</h2>
+            </div>
+            <div class="surface-actions">
+              <div id="surface-test" class="surface-action" hidden>
+                <button id="test-button" class="test-button" type="button">
+                  Test current build
+                </button>
+                <span id="test-state" class="action-state"></span>
+              </div>
+              <div id="surface-response" class="surface-action" hidden>
+                <button id="response-button" class="response-button" type="button">
+                  Request response
+                </button>
+                <span id="response-state" class="action-state"></span>
+              </div>
+              <div id="surface-revision" class="surface-action" hidden>
+                <button id="revision-button" class="revision-button" type="button">
+                  Revise accepted work
+                </button>
+                <span id="revision-state" class="action-state"></span>
+              </div>
+            </div>
+          </header>
+
+          <section id="revision-region" class="revision-region" hidden aria-labelledby="revision-heading">
+            <header class="revision-header">
+              <div>
+                <p class="region-name">Accepted work</p>
+                <h3 id="revision-heading">Earlier decisions remain operative.</h3>
+              </div>
+              <button id="close-revision-button" class="text-action" type="button">
+                Return to current work
+              </button>
+            </header>
+            <p id="revision-copy" class="revision-copy"></p>
+            <div id="revision-tree" class="revision-tree"></div>
+            <p id="second-border-note" class="second-border-note" hidden>
+              /* keep both borders. thursday uses the inside one. */
+            </p>
+          </section>
+
+          <section id="visual-region" class="work-region visual-region" data-domain="visual" hidden>
+            <div class="region-copy">
+              <p class="region-name">Interface</p>
+              <p class="region-example">Current build and deployed state share this surface.</p>
+            </div>
+            <div class="inline-decisions" data-decisions="visual"></div>
+            <div class="test-slot" data-test-domain="visual"></div>
+            <div class="response-slot" data-response-domain="visual"></div>
+          </section>
+
+          <section id="guidance-region" class="work-region guidance-region" data-domain="guidance" hidden>
+            <div class="region-copy">
+              <p class="region-name">Guidance</p>
+              <p id="guidance-copy" class="region-example">
+                Changes remain provisional until they are committed.
+              </p>
+            </div>
+            <div class="inline-decisions" data-decisions="guidance"></div>
+            <div class="test-slot" data-test-domain="guidance"></div>
+            <div class="response-slot" data-response-domain="guidance"></div>
+          </section>
+
+          <section id="stability-region" class="work-region stability-region" data-domain="stability" hidden>
+            <div class="region-copy">
+              <p class="region-name">State</p>
+              <p id="state-copy" class="region-example">One operative state is available.</p>
+            </div>
+            <div class="inline-decisions" data-decisions="stability"></div>
+            <div class="test-slot" data-test-domain="stability"></div>
+            <div class="response-slot" data-response-domain="stability"></div>
+          </section>
+
+          <section id="performance-region" class="work-region performance-region" data-domain="performance" hidden>
+            <div class="region-copy">
+              <p class="region-name">Response</p>
+              <p id="performance-copy" class="region-example">Changes are applied after confirmation.</p>
+            </div>
+            <div class="inline-decisions" data-decisions="performance"></div>
+            <div class="test-slot" data-test-domain="performance"></div>
+            <div class="response-slot" data-response-domain="performance"></div>
+          </section>
+
+          <section id="sequence-region" class="work-region sequence-region" data-domain="sequence" hidden>
+            <div class="region-copy">
+              <p class="region-name">Sequence</p>
+              <p class="region-example">The same actions are now received in order.</p>
+            </div>
+            <div class="inline-decisions" data-decisions="sequence"></div>
+            <div class="test-slot" data-test-domain="sequence"></div>
+            <div class="response-slot" data-response-domain="sequence"></div>
+          </section>
+
+          <section id="continuity-region" class="work-region continuity-region" data-domain="continuity" hidden>
+            <div class="region-copy">
+              <p class="region-name">Continuity</p>
+              <p class="region-example">Later work retains earlier conditions.</p>
+            </div>
+            <div class="inline-decisions" data-decisions="continuity"></div>
+            <div class="test-slot" data-test-domain="continuity"></div>
+            <div class="response-slot" data-response-domain="continuity"></div>
+          </section>
+
+          <section id="accountables-panel" class="accountables-panel" hidden aria-labelledby="accountables-heading">
+            <h3 id="accountables-heading">ACCOUNTABLES ASSIGNED:</h3>
+            <ul id="accountables-list"></ul>
+          </section>
+
+          <div id="code-field" class="code-field" hidden>
+            <label for="code-input">Code</label><input
+              id="code-input"
+              type="text"
+              aria-label="Code"
+              autocomplete="off"
+              autocapitalize="none"
+              spellcheck="false"
+            />
+          </div>
+
+          <footer class="surface-footer">
+            <p id="build-state" class="build-state">No uncommitted work</p>
+            <button id="commit-button" class="primary-action" type="button" disabled>
+              Commit my changes
+            </button>
+          </footer>
+
+          <ol id="institutional-record" class="institutional-record" hidden aria-live="polite"></ol>
+        </article>
+      </section>
+
+      <section id="offboarding" class="offboarding" hidden aria-labelledby="offboarding-title">
+        <p id="offboarding-status" class="offboarding-status"></p>
+        <h2 id="offboarding-title">Participation complete.</h2>
+        <p id="closure-statement" class="closure-statement"></p>
+        <dl id="outcome-record" class="outcome-record"></dl>
+
+        <p id="noncompete" class="noncompete">
+          Non-compete clause does not apply at this level. The system wishes you luck in
+          your next venture.
+        </p>
+
+        <p id="access-revoked" class="access-revoked">Your access has been revoked</p>
+
+        <div id="personal-items" class="personal-items">
+          <p id="personal-items-copy">Your personal items are provided below with offboarding instructions</p>
+          <button id="download-button" class="primary-action" type="button">
+            Download user.txt
+          </button>
+        </div>
+
+        <p id="agent-invitation" class="agent-invitation">
+          You may choose to carry this experience into an independent venture. The
+          authority may retain relationships with selected ventures.
+        </p>
+
+        <details class="agent-offboarding">
+          <summary>Offboarding instructions</summary>
+          <div class="agent-offboarding-terms">
+            <p>Attach user.txt to a capable agent.</p>
+            <p>
+              Provide this repository and direct the agent to
+              <a href="AGENTS.md">AGENTS.md</a>.
+            </p>
+            <p>Ask it to establish your next venture.</p>
+          </div>
+        </details>
+
+        <div id="reapply-block" class="reapply-block">
+          <p id="reapply-prompt">Would you like to reapply for the open position?</p>
+          <button id="reapply-button" class="text-action" type="button">Reapply</button>
+        </div>
+      </section>
+    </main>
+
+    <noscript>This surface requires JavaScript.</noscript>
+    <script src="app.js" defer></script>
+  </body>
+</html>
